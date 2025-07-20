@@ -1,6 +1,10 @@
 import { products } from "./products.js";
+import { addToCart } from "./add-to-cart.js";
 
 const productContainer = document.getElementById("product-container");
+
+// put addToCart function into global for window
+window.addToCart = addToCart;
 
 const showProduct = (productsData) => {
   let cards = "";
@@ -30,7 +34,7 @@ const showProduct = (productsData) => {
                 </div>
                 <div class="product-actions">
                     <a href="product-detail.html?id=${value.id}" class="btn btn-outline">View</a>
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <button class="btn btn-primary" onclick="addToCart(${value.id}, 1)">Add to Cart</button>
                 </div>
             </div>
         </div>
